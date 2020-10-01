@@ -22,18 +22,40 @@ const config = {
         exclude: /node_modules/,
         use: ['babel-loader'],
       },
-      // CSS Files
+      // CSS, SCSS Files
       {
-        test: /\.css$/,
-        use: ['style-loader', 'css-loader'],
-      },
-      // SCSS Files
-      {
-        test: /\.s[ac]ss$/i,
+        test: /\.(s*)css$/,
+        exclude: /node_modules/,
         use: [
-          'style-loader',
-          'css-loader',
-          'sass-loader',
+          {
+            loader: 'style-loader',
+          },
+          {
+            loader: 'css-loader',
+            options: {
+              importLoaders: 1,
+              modules: true,
+            },
+          },
+          {
+            loader: 'sass-loader',
+            options: {
+              sourceMap: false,
+            },
+          },
+          {
+            loader: 'postcss-loader',
+            options: {
+              sourceMap: false,
+              postcssOptions: {
+                plugins: [
+                  [
+                    'autoprefixer',
+                  ],
+                ],
+              },
+            },
+          },
         ],
       },
       // IMG
@@ -51,8 +73,9 @@ const config = {
     new CleanWebpackPlugin({ cleanStaleWebpackAssets: true }),
     new HtmlWebpackPlugin({
       filename: 'index.html',
-      template: 'src/index.html',
-    })
+      template: 'public/index.html',
+      inject: 'body',
+    }),
   ],
 };
 

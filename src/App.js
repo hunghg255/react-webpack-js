@@ -7,7 +7,7 @@ import About from './containers/About';
 import Todo from './components/Todo';
 import NavBar from './components/NavBar/NavBar';
 
-import './App.css';
+import styles from './App.css';
 
 export default function App() {
   const onClick = () => {
@@ -27,7 +27,7 @@ export default function App() {
           </Route>
         </Switch>
         <Todo />
-        <button onClick={onClick}>Click</button>
+        <button className={`${styles.btn}`} onClick={onClick}>Click</button>
       </Router>
     </>
   );
