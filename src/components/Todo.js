@@ -9,7 +9,7 @@ export default class Todo extends Component {
   render() {
     return (
       <div>
-        <h3>Todo</h3>
+        <h3 class="h3">Todo</h3>
         <button onClick={funcAlerts}>alert</button>
         <img src={IMG} alt=""/>
       </div>
