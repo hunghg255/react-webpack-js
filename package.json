@@ -4,8 +4,8 @@
   "description": "",
   "scripts": {
     "start": "npm run dev",
-    "build": "webpack --config webpack.config.production.js",
-    "dev": "webpack-dev-server --open --config webpack.config.dev.js"
+    "build": "webpack --config webpack.config.production.js --env.MODE=BUILD",
+    "dev": "webpack-dev-server --open --config webpack.config.dev.js --env.MODE=DEV"
   },
   "keywords": [],
   "author": "",

@@ -4,8 +4,6 @@ const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
 const config = require('./webpack.config.js');
 
-config.mode = 'production';
-
 config.optimization = {
   moduleIds: 'hashed',
   splitChunks: {
