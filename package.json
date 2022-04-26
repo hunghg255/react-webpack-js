@@ -6,8 +6,8 @@
     "start": "npm run dev",
     "build": "webpack --config webpack.config.production.js --env.MODE=BUILD",
     "dev": "webpack-dev-server --open --config webpack.config.dev.js --env.MODE=DEV",
-    "lint": "eslint --ext .ts,.tsx src --color",
-    "format": "prettier --write src/**/*.{ts,tsx}",
+    "lint": "eslint --ext .js,.jsx src --color",
+    "format": "prettier --write src/**/*.{js,jsx}",
     "analyze": "source-map-explorer 'build/static/js/*.js'"
   },
   "keywords": [],
