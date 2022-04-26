@@ -4,9 +4,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 require('@babel/register');
 
-const config =
-
-module.exports = env => {
+const config = (module.exports = (env) => {
   const isDev = env.mode === 'DEV';
   return {
     mode: isDev ? 'development' : 'production',
@@ -17,6 +15,9 @@ module.exports = env => {
     },
     resolve: {
       extensions: ['.js', '.jsx'],
+      alias: {
+        '@components': path.resolve(__dirname, './src/components'),
+      },
     },
     module: {
       rules: [
@@ -53,11 +54,7 @@ module.exports = env => {
               options: {
                 sourceMap: isDev,
                 postcssOptions: {
-                  plugins: [
-                    [
-                      'autoprefixer',
-                    ],
-                  ],
+                  plugins: [['autoprefixer']],
                 },
               },
             },
@@ -69,7 +66,7 @@ module.exports = env => {
           loader: 'url-loader',
           options: {
             limit: 8192,
-            name: '[path][name].[ext]'
+            name: '[path][name].[ext]',
           },
         },
       ],
@@ -83,4 +80,4 @@ module.exports = env => {
       }),
     ],
   };
-};
+});

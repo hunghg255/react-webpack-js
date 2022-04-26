@@ -1,13 +1,13 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
-import Home from './containers/Home';
 import About from './containers/About';
 
 import Todo from './components/Todo';
-import NavBar from './components/NavBar/NavBar';
 
 import styles from './App.css';
+import Home from './containers/Home';
+import NavBar from '@components/NavBar/NavBar';
 
 export default function App() {
   const onClick = () => {
@@ -27,7 +27,9 @@ export default function App() {
           </Route>
         </Switch>
         <Todo />
-        <button className={`${styles.btn}`} onClick={onClick}>Click</button>
+        <button className={`${styles.btn}`} onClick={onClick}>
+          Click
+        </button>
       </Router>
     </>
   );
